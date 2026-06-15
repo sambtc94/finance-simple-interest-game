@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finance Quest: Simple Interest Story Game</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Finance Quest: Harbour City Hustle</h1>
+      <p>
+        Build your future in Harbour City by solving real money problems: wages, tax, simple interest,
+        and spending choices.
+      </p>
+      <div class="scoreboard">
+        <span id="score">Score: 0</span>
+        <span id="progress">Missions complete: 0/10</span>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>Mission Board</h2>
+      <div id="missionList" class="mission-list" aria-label="Mission list"></div>
+
+      <article id="missionCard" class="mission-card" hidden>
+        <h3 id="missionTitle"></h3>
+        <p id="missionStory"></p>
+        <p id="missionQuestion" class="question"></p>
+        <label for="answerInput">Your answer</label>
+        <input id="answerInput" type="text" autocomplete="off" />
+        <div class="actions">
+          <button id="checkAnswerBtn">Check answer</button>
+          <button id="nextMissionBtn">Next mission</button>
+        </div>
+        <p id="feedback" aria-live="polite"></p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>PAYG quick lookup (weekly)</h2>
+      <p>Use this published-style table during tax missions.</p>
+      <table>
+        <thead>
+          <tr><th>Weekly pay</th><th>Tax withheld</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>$0 - $359</td><td>$0</td></tr>
+          <tr><td>$360 - $438</td><td>16% of amount over $359</td></tr>
+          <tr><td>$439 - $548</td><td>$13 + 19% of amount over $438</td></tr>
+          <tr><td>$549 - $721</td><td>$34 + 32.5% of amount over $548</td></tr>
+          <tr><td>$722+</td><td>$90 + 37% of amount over $721</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Simple interest explorer (algebra + graph)</h2>
+      <p>Formula: <strong>I = P × r × n</strong>, and total value is <strong>A = P + I</strong>.</p>
+      <div class="grid">
+        <label>Principal P ($)<input id="principalInput" type="number" min="0" value="1000" /></label>
+        <label>Rate per year r (decimal)<input id="rateInput" type="number" step="0.001" min="0" value="0.08" /></label>
+        <label>Years n<input id="yearsInput" type="number" min="1" value="5" /></label>
+      </div>
+      <button id="plotBtn">Plot growth</button>
+      <p id="simpleInterestSummary"></p>
+      <canvas id="interestChart" width="680" height="260" aria-label="Simple interest graph"></canvas>
+    </section>
+
+    <section class="panel">
+      <h2>Spending options comparator</h2>
+      <div class="grid two-cols">
+        <div>
+          <h3>Buy now, pay later</h3>
+          <label>Item price ($)<input id="bnplPrice" type="number" min="0" value="900" /></label>
+          <label>Installments<input id="bnplInst" type="number" min="1" value="6" /></label>
+          <label>Fee per installment ($)<input id="bnplFee" type="number" min="0" value="4" /></label>
+        </div>
+        <div>
+          <h3>Short-term loan</h3>
+          <label>Principal ($)<input id="loanPrincipal" type="number" min="0" value="900" /></label>
+          <label>Establishment fee ($)<input id="loanEst" type="number" min="0" value="25" /></label>
+          <label>Monthly fee ($)<input id="loanMonthly" type="number" min="0" value="18" /></label>
+          <label>Months<input id="loanMonths" type="number" min="1" value="3" /></label>
+        </div>
+      </div>
+      <button id="compareSpendBtn">Compare costs</button>
+      <p id="spendSummary"></p>
+    </section>
+  </main>
+
+  <script src="./game.js"></script>
+</body>
+</html>
