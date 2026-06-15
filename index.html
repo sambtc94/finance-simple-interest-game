@@ -8,20 +8,53 @@
 </head>
 <body>
   <main class="app">
-    <header>
-      <h1>Finance Quest: Harbour City Hustle</h1>
-      <p>
-        Build your future in Harbour City by solving real money problems: wages, tax, simple interest,
-        and spending choices.
-      </p>
-      <div class="scoreboard">
-        <span id="score">Score: 0</span>
-        <span id="progress">Missions complete: 0/10</span>
+    <header class="page-header">
+      <div class="header-copy">
+        <p class="eyebrow">Level up your money skills</p>
+        <h1>Finance Quest: Harbour City Hustle</h1>
+        <p>
+          Build your future in Harbour City by solving real money problems: wages, tax, simple interest,
+          and spending choices.
+        </p>
+        <div class="scoreboard">
+          <span id="score">Score: 0</span>
+          <span id="progress">Missions complete: 0/10</span>
+        </div>
+      </div>
+
+      <div class="header-visual" aria-label="Game sprites">
+        <img class="skyline-sprite" src="./assets/sprites/skyline.svg" alt="City skyline sprite" />
+        <div class="sprite-strip">
+          <article class="sprite-card">
+            <img src="./assets/sprites/joystick.svg" alt="Joystick sprite" />
+            <div>
+              <h2>Play</h2>
+              <p>Clear missions to unlock the full Harbour City story.</p>
+            </div>
+          </article>
+          <article class="sprite-card">
+            <img src="./assets/sprites/chart.svg" alt="Chart sprite" />
+            <div>
+              <h2>Invest</h2>
+              <p>See how simple interest grows over time with live visuals.</p>
+            </div>
+          </article>
+          <article class="sprite-card">
+            <img src="./assets/sprites/money-bag.svg" alt="Money bag sprite" />
+            <div>
+              <h2>Choose</h2>
+              <p>Compare deals and spot the cheaper option faster.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </header>
 
-    <section class="panel">
-      <h2>Mission Board</h2>
+    <section class="panel panel-accent-cyan">
+      <h2 class="section-title">
+        <img src="./assets/sprites/joystick.svg" alt="" aria-hidden="true" />
+        Mission Board
+      </h2>
       <div id="missionList" class="mission-list" aria-label="Mission list"></div>
 
       <article id="missionCard" class="mission-card" hidden>
@@ -38,8 +71,11 @@
       </article>
     </section>
 
-    <section class="panel">
-      <h2>PAYG quick lookup (weekly)</h2>
+    <section class="panel panel-accent-slate">
+      <h2 class="section-title">
+        <img src="./assets/sprites/skyline.svg" alt="" aria-hidden="true" />
+        PAYG quick lookup (weekly)
+      </h2>
       <p>Use this published-style table during tax missions.</p>
       <table>
         <thead>
@@ -55,8 +91,11 @@
       </table>
     </section>
 
-    <section class="panel">
-      <h2>Simple interest explorer (algebra + graph)</h2>
+    <section class="panel panel-accent-coral">
+      <h2 class="section-title">
+        <img src="./assets/sprites/chart.svg" alt="" aria-hidden="true" />
+        Simple interest explorer (algebra + graph)
+      </h2>
       <p>Formula: <strong>I = P × r × n</strong>, and total value is <strong>A = P + I</strong>.</p>
       <div class="grid">
         <label>Principal P ($)<input id="principalInput" type="number" min="0" value="1000" /></label>
@@ -68,8 +107,11 @@
       <canvas id="interestChart" width="680" height="260" aria-label="Simple interest graph"></canvas>
     </section>
 
-    <section class="panel">
-      <h2>Spending options comparator</h2>
+    <section class="panel panel-accent-gold">
+      <h2 class="section-title">
+        <img src="./assets/sprites/money-bag.svg" alt="" aria-hidden="true" />
+        Spending options comparator
+      </h2>
       <div class="grid two-cols">
         <div>
           <h3>Buy now, pay later</h3>
@@ -88,6 +130,12 @@
       <button id="compareSpendBtn">Compare costs</button>
       <p id="spendSummary"></p>
     </section>
+
+    <footer class="asset-credit">
+      Sprites from
+      <a href="https://openmoji.org/" target="_blank" rel="noreferrer">OpenMoji</a>
+      (CC BY-SA 4.0), adapted for this game.
+    </footer>
   </main>
 
   <script src="./game.js"></script>
